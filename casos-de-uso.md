@@ -12,7 +12,8 @@
 # Chamadas de API
 [PUT]
 updateDevice/
-  {
+```
+{
     NomeSetor : 
     { 
       nomeLinha : 
@@ -33,11 +34,12 @@ updateDevice/
       }
     }
   }
-
+```
 [GET]
 
 getAllDeviceUnRegistred/:idEmpresa
 getAllDevicesRegistred/:idEmpresa
+```
 { 
   setores [setor 1] >
          linhas [linha 1]> 
@@ -45,13 +47,14 @@ getAllDevicesRegistred/:idEmpresa
                 equipamento [equipamento monitorado] > 
                     dispositivos [dispositivo 1]
 }
-
+```
 empresa.linha1.equipamento1.dispositivos.dispositivo1 = id, macadresss , nome
 
 [GET]
 getDeviceData/:initDate=22-3-3&endDate=22-22-2222&macAdress=3123231MC&page=5&size=0
 
 deviceDataBody 
+```
 [
   {
     dateTime : string com os horario que os dados foram recebidos pelo mqttClient.
@@ -66,3 +69,4 @@ deviceDataBody
     ]}
   }
 ]
+```
