@@ -1,41 +1,40 @@
-# Exibir dispositivos da empresa na home page.
-
-1. Dado que eu tenho uma Id de empresa eu quero recuperar todos os dispositivos da empresa empresa.
-
 # Cenários
+## Exibir dispositivos da empresa na barra lateral.
 
-## 1 dispositivo
+1. Dado que eu tenho uma Id de empresa, quero poder acessar meus dispositivos Sensar hierarquicamente por Setor, Linha, Maquina e Equipamento.
+2. Dado que eu tenho um equipamento, quero acessar algum DS (dispositivoSensar) e exibir as informaçoes associadas a ele.
 
-1. Dado que eu tenho um dispositivo eu quero editar as suas propriedades.
-2. Dado que eu tenho um Id de um dispositivo eu quero recuperar os dados dos sensores ex.: vibracao... 
+## Exibir DS's que não estão vinculados a nenhum setor.
 
+1. Dado que eu tenho DS's novos, quero saber quais estao disponiveis para uso.
+2. Dado que eu tenho Id de DS sem informaçoes associadas eu quero edita-lo.
+
+## Interagir com o dispositivo
+
+1. Dado que eu tenho um DS eu quero editar as suas propriedades.
+2. Dado que eu tenho um Id de um DS eu quero recuperar os dados dos sensores ex.: vibracao... 
+
+## Criar novas opções de _Setor_, _Linha_, _Máquina_ e _Equipamento_
+- Caso não encontre uma opção desejada durante o processo de edição do SD, quero poder criar uma personalizada.
+
+## Buscar opçoes de _Setor_, _Linha_, _Máquina_ e _Equipamento_
+- Caso queira dar opções para o seletor de propriedade quero poder busca-as,
 # Chamadas de API
-## [PUT] updateDevice/
+### [PUT] updateDevice/:id
 ```
-{
-    NomeSetor : 
-    { 
-      nomeLinha : 
-      { 
-        nomeMaquina :
-        {
-          nomeEquipamento : 
-          { 
-            Device : 
-            { 
-              id :'21',
-              macAdrr : 'xpto',
-              nome : 'bullet',
-              obs : 'eita',
-            }
-          }
-        }
-      }
-    }
-  }
+{ 
+  id* :'21',
+  macAdrr* : 'xpto',
+  alias? : 'bullet',
+  observacoes? : 'eita',
+  section* : 'nomeSetor',
+  line* : 'nomeLinha',
+  machine* :'nomeMaquina',
+  equipiment* : 'nomeEquipamento'
+}
 ```
 
-## [GET] getAllDeviceUnRegistred/:idEmpresa
+### [GET] getAllDeviceUnRegistred/:idEmpresa
 ```
 [
   {
@@ -48,8 +47,53 @@
   },
 ]
 ```
+### [POST] createProperte/:tipo-de-opcao
+```
+{
+  name : 'maquina1',
+  hierarquia:'setorNome/linhaNome'
+}
+```
+### [GET] getAllDevicesRegistred/:idEmpresa/:setor
+```
+{
+  [ setor1, setor2, setor3, ...]
+}
+```
+### [GET] getAllDevicesRegistred/:idEmpresa/:setor/:linha
+```
+{
+  [linha1, linha2, linha3, ...]
+}
+```
+### [GET] getAllDevicesRegistred/:idEmpresa/:linha/:maquina
+```
+{
+  [ maquina1, maquina2, maquina3, ...]
+}
+```
+### [GET] getAllDevicesRegistred/:idEmpresa/:linha/:maquina/:equipamento
+```
+{
+  [equipamento1, equipamento2, equipamento3, ...]
+}
+```
 
-## [GET] getAllDevicesRegistred/:idEmpresa
+### [GET] getAllDevicesRegistred/:idEmpresa/:linha/:maquina/:equipamento/:disposivos-sensar
+
+```
+[ 
+  {
+    id :'21',
+    macAdrr : 'xpto',
+    alias : 'bulet'
+    obs : 'eita'
+  },
+  {...}
+]
+```
+
+### [GET] getAllDevicesRegistred/:idEmpresa
 ```
 [
   { setor1 : {...} },
@@ -57,18 +101,7 @@
               linha1 : {...},
               linha2 : { 
                         maquina1 : {...},
-                        maquina2 : {
-                                    equipamento1 : {...},
-                                    equipamento2 : [
-                                                    {
-                                                      id :'21',
-                                                      macAdrr : 'xpto',
-                                                      alias : 'bulet'
-                                                      obs : 'eita'
-                                                     },
-                                                     {...}
-                                                    ]
-                                     }
+                        maquina2 : {  equipamento1, equipamento2 }
                         }
                }
    },
@@ -83,19 +116,17 @@ deviceDataBodyResponse
 ```
 [
   {
-    dateTime : "22-02-2222 10:42 UTC",
+    dateTime : "Thu Mar 24 2022 17:37:47 GMT-0300",
     temperature: {
-                   unit : "c" ,
-                   value : 75
+                   c : 75
                  },
-    vibration : [[-1484,  436, 15784],[-1476, 444, 15908]...],
+    vibration : [-1484,  436, 15784],[-1476, 444, 15908]...],
     vibration-spectrum : [[-1484,  436, 15784],[-1476, 444, 15908]...]
   },
   {
-    dateTime : "22-02-2222 12:42 UTC",
+    dateTime : "Thu Mar 24 2022 17:37:47 GMT-0300",
     temperature: {
-                   unit : "c" ,
-                   value : 85
+                   c : 85
                  },
     vibration : [[-1484,  436, 15784],[-1476, 444, 15908]...],
     vibration-spectrum : [[-1484,  436, 15784],[-1476, 444, 15908]...]
