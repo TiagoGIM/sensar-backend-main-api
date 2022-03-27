@@ -1,4 +1,4 @@
-# Cenários
+# Buscar a infraestrutura monitorada
 ## Exibir dispositivos da empresa na barra lateral.
 
 1. Dado que eu tenho uma Id de empresa, quero poder acessar meus dispositivos Sensar hierarquicamente por Setor, Linha, Maquina e Equipamento.
@@ -18,7 +18,7 @@
 - Caso não encontre uma opção desejada durante o processo de edição do SD, quero poder criar uma personalizada.
 
 ## Buscar opçoes de _Setor_, _Linha_, _Máquina_ e _Equipamento_
-- Caso queira dar opções para o seletor de propriedade quero poder busca-as,
+- Caso queira dar opções para o seletor de propriedade quero poder busca-las,
 # Chamadas de API
 ### [PUT] updateDevice/:id
 ```
@@ -47,7 +47,7 @@
   },
 ]
 ```
-### [POST] createProperte/:tipo-de-opcao
+### [POST] createProperties/:tipo-de-opcao
 ```
 {
   name : 'maquina1',
