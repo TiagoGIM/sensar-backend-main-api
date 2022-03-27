@@ -1,6 +1,6 @@
 import { CheckInfrastructure } from "../check-infrastructure";
 import { InfrastrureTree, Sector } from "../models/interfaces";
-import { ILoadInfrastrureReposisory } from "../repositories/loadInfrastrureRepository.interface";
+import { ILoadInfrastrureReposisory } from "../repository/loadInfrastrureRepository.interface";
 // mockando repository
 class LoadInfrasctureReposisorySpy implements ILoadInfrastrureReposisory {
   companyId?: string;
@@ -18,9 +18,7 @@ const makeSut = (): SutOutput => {
   return { sut, loadInfrasctureReposisory }
 }
 describe('CheckInfrastructure', () => {
-  beforeAll(() => { });
-  afterAll(() => { });
-  it('should try get all sectores from companyId', async () => {
+  it('should try get all sectors from companyId', async () => {
     const { sut, loadInfrasctureReposisory } = makeSut()
     const companyId = 'any_group_id';
     const infraTest: InfrastrureTree = { sectors: [] };
