@@ -1,4 +1,4 @@
-import { SetupServer } from "@src/server";
+/*import { SetupServer } from "@src/server";
 import supertest from "supertest";
 
 beforeAll(() => {
@@ -6,3 +6,4 @@ beforeAll(() => {
   server.init();
   global.testRequest = supertest(server.getApp())
 });
+*/

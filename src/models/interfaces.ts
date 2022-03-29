@@ -12,7 +12,7 @@ export interface Device {
 export interface Equipment{
   id: string;
   name:string;
-  equipiments : Device[];
+  devices : Device[];
 }
 
 export interface Machine{
@@ -26,12 +26,13 @@ export interface Line {
   id: string;
   machines: Machine[];
 }
-export interface InfrastrureTree {
-  sectors: Sector[];
-}
 
 export interface Sector {
   name: string;
   id: string;
   lines: Line[];
+}
+
+export interface InfrastrureTree {
+  sectors: Sector[];
 }

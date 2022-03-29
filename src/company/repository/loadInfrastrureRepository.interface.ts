@@ -1,4 +1,4 @@
-import { InfrastrureTree } from "../models/interfaces";
+import { InfrastrureTree } from "../../models/interfaces";
 
 export interface ILoadInfrastrureReposisory {
   companyId?: string;

@@ -1,4 +1,4 @@
-import { Device } from "@src/company/models/interfaces";
+import { Device } from "@src/models/interfaces";
 
 export interface IEquipmantManagerRepository {
   equipmentId?: string;

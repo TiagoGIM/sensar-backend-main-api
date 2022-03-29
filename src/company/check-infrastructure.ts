@@ -1,4 +1,4 @@
-import { InfrastrureTree } from "./models/interfaces";
+import { InfrastrureTree } from "../models/interfaces";
 import { ILoadInfrastrureReposisory } from "./repository/loadInfrastrureRepository.interface";
 
 export class CheckInfrastructure {

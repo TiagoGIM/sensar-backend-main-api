@@ -1,4 +1,4 @@
-import { Device } from "@src/company/models/interfaces";
+import { Device } from "@src/models/interfaces";
 import { IEquipmantManagerRepository } from "./repository/IequipmantManagerRepository";
 
 export interface EquipmentDTO {

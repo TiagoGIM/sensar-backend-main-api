@@ -1,5 +1,5 @@
 import { CheckInfrastructure } from "../check-infrastructure";
-import { InfrastrureTree, Sector } from "../models/interfaces";
+import { InfrastrureTree, Sector } from "../../models/interfaces";
 import { ILoadInfrastrureReposisory } from "../repository/loadInfrastrureRepository.interface";
 // mockando repository
 class LoadInfrasctureReposisorySpy implements ILoadInfrastrureReposisory {

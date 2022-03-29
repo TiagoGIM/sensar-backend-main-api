@@ -1,0 +1,1 @@
+export * from './load-company-structure.repository'
