@@ -17,7 +17,7 @@ type Machine = {
   equipiments : Equipment[];
 }
 
-type Equipment = {
+export type Equipment = {
   name:string;
   devices : Device[];
 }

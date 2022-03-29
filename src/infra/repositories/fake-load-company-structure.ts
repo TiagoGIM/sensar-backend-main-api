@@ -1,5 +1,5 @@
-import { LoadCompanyStructureRepository } from "@src/application/contracts";
-import { InfrastrureTree } from "@src/models";
+import { LoadCompanyStructureRepository } from "@/application/contracts";
+import { InfrastrureTree } from "@/application/models";
 import { sectorsMock } from "../data-source/data-source";
 
 export class FakeCompanyStructureRepository implements LoadCompanyStructureRepository {

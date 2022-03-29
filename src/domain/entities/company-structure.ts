@@ -20,12 +20,13 @@ type Machine = {
   equipiments : Equipment[];
 }
 
-type Equipment = {
+export type Equipment = {
   name:string;
   devices : Device[];
 }
 
 type Device = {
+  id: string
   macAdrr : string;
   alias? : string ;
   observacoes? : string;

@@ -1,5 +1,3 @@
-import { Sector } from "@src/models";
-
 export const sectorsMock = [
   {
     id: '1',

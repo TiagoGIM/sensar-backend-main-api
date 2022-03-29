@@ -1,9 +1,9 @@
-import { Controller } from "@src/presentation/contracts";
+import { Controller } from "@/presentation/contracts";
 import { Request, Response } from "express";
 
 export const adaptRoute = (controller : Controller) => {
   return async (req : Request,res : Response) =>{
-    const httpResponse = await controller.handle();
+    const httpResponse = await controller.handle(req.params.id);
     res.status(httpResponse.statusCode).json(httpResponse.data);
   }
 }

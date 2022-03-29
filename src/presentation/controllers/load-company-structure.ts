@@ -1,10 +1,10 @@
-import { CompanyStructureLoader } from "@src/domain/use-cases/company-structure-loader";
-import { Controller, HttpResponse, serverError } from "@src/presentation/contracts";
-import { CompanyStructureModel } from "@src/presentation/view-models";
+import { CompanyStructureLoader } from "@/domain/use-cases/company-structure-loader";
+import { Controller, HttpResponse, serverError } from "@/presentation/contracts";
+import { CompanyStructureModel } from "@/presentation/view-models";
 /**
  * cada controlador sera  handler de uma rota
  * aqui é implementado o view model, que na api é um json.
- * o presentantio conversa com dominio
+ * o presentantion conversa com dominio
  */
 
 export class LoadCompanyStructureController implements Controller {
