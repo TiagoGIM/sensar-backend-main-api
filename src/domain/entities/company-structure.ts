@@ -5,7 +5,7 @@ export type CompanyStructure = {
   sectors: Sector[];
 }
 
-type Sector = {
+export type Sector = {
   name: string;
   lines: Line[];
 }

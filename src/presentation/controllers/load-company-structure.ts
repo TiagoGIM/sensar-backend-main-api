@@ -12,9 +12,9 @@ export class LoadCompanyStructureController implements Controller {
     private readonly companyStructureLoader : CompanyStructureLoader
     ) { }
 
-  async handle () : Promise<HttpResponse<CompanyStructureModel>> {
+  async handle (id) : Promise<HttpResponse<CompanyStructureModel>> {
     try {
-      const tree = await this.companyStructureLoader.load('id');
+      const tree = await this.companyStructureLoader.load(id || '1');
        return {
          statusCode : 200,
          data : tree

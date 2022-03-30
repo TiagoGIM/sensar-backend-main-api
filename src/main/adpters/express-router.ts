@@ -2,8 +2,8 @@ import { Controller } from "@/presentation/contracts";
 import { Request, Response } from "express";
 
 export const adaptRoute = (controller : Controller) => {
-  return async (req : Request,res : Response) =>{
-    const httpResponse = await controller.handle(req.params.id);
-    res.status(httpResponse.statusCode).json(httpResponse.data);
+  return async (request : Request,response : Response) =>{
+    const httpResponse = await controller.handle(request);
+    response.status(httpResponse.statusCode).json(httpResponse.data);
   }
 }

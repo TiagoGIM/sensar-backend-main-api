@@ -1,5 +1,5 @@
 import { EquipmentLoaderService } from "@/application/services";
-import { FakeEquipmentRepository } from "@/infra/repositories/fake-load-equipment";
+import { FakeEquipmentRepository } from "@/infra/repositories/fake-repository/fake-load-equipment";
 import { Controller } from "@/presentation/contracts";
 import { LoadEquipmentController } from "@/presentation/controllers";
 

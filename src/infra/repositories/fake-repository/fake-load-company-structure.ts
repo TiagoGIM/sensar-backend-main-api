@@ -1,6 +1,6 @@
 import { LoadCompanyStructureRepository } from "@/application/contracts";
 import { InfrastrureTree } from "@/application/models";
-import { sectorsMock } from "../data-source/data-source";
+import { sectorsMock } from "@/infra/data-source/data-source";
 
 export class FakeCompanyStructureRepository implements LoadCompanyStructureRepository {
   async loadCompanyStructure(companyId: string) : Promise<InfrastrureTree>{
