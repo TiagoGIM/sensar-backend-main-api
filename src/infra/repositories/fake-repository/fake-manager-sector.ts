@@ -1,16 +1,17 @@
 import { SectorManagerRepository } from "@/application/contracts/manager-sector.repository";
-import { SectorList } from "@/domain/entities";
-import { Sector } from "@/application/models";
+import { AddSector, Sector, SectorList } from "@/domain/entities";
 
 export class FakeSectorRepository implements SectorManagerRepository {
+  create(sector: AddSector): Promise<Sector> {
+    throw new Error("Method not implemented.");
+  }
   async save(sector: Sector): Promise<Sector> {
+  console.log('cara pra salvar', sector)
 
-    console.log('cara pra salvar', sector)
-
-  const sectorResponse  = {
+  const sectorResponse :Sector = {
     name: sector.name,
     id: sector.id,
-    lines: []
+    company_owner : "mockada"
   }
   return sectorResponse 
   }

@@ -13,7 +13,18 @@ export const sectorsMock = [
             {
               id: '1234',
               name: 'equipamento1',
-              devices: []
+              devices: [
+                {
+                  id :"1",
+                  macAdrr :"QRTYWE",
+                  alias :"",
+                  observacoes :"",
+                  sector :"setor 1",
+                  line :"linha 1",
+                  machine :"maquina 1",
+                  equipiment :"equipamento1",
+                }
+              ]
             }
           ]
         }],

@@ -1,4 +1,4 @@
-import { Equipment } from "@/application/models";
+import { Equipment } from "@/domain/entities";
 
 export interface LoadEquipmentRepository {
   loadEquipment : (equipmentId : string) => Promise<Equipment>;
