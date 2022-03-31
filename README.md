@@ -20,7 +20,9 @@ https://sensar-iot.herokuapp.com/api/
 
 ### rotas : 
 >[GET] query/equipment/:id
+
 >[PUT] action/sector/:sectorId
+
 >[GET] query/company-tree/:id
 
 
