@@ -3,7 +3,7 @@ export interface Device {
   macAdrr : string;
   alias? : string ;
   observacoes? : string;
-  section : string;
+  sector : string;
   line : string;
   machine : string;
   equipiment : string;

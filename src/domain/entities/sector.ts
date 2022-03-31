@@ -1,14 +1,10 @@
 //export type SectorList = Sector[];
-type Sector = {
+export type Sector = {
   company_owner: string; //pode ser id?
   name: string;
   id: string;
 }
-
-type Line = {
-  name: string;
-  id: string
-}
+export type AddSector = Omit<Sector,'id'>
 
 export type CreateSectorStatus= {
   statusCreate: StatusCreateUpdate;

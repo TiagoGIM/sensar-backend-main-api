@@ -1,7 +1,13 @@
-import { Sector,SectorList, CreateSectorStatus, StatusCreateUpdate } from "@/domain/entities";
+import {
+  Sector,
+  SectorList,
+  CreateSectorStatus,
+  StatusCreateUpdate,
+  AddSector
+} from "@/domain/entities";
 
 export interface SectorManager {
-  create: (sector : Sector) => Promise<CreateSectorStatus>
-  update: (sector : Sector) => Promise<StatusCreateUpdate>
-  load: (companiId :string) => Promise<SectorList>
+  create: (sector: AddSector) => Promise<CreateSectorStatus>
+  update: (sector: Sector) => Promise<StatusCreateUpdate>
+  load: (companiId: string) => Promise<SectorList>
 }
