@@ -6,19 +6,23 @@ export interface Device {
   sector : string;
   line : string;
   machine : string;
-  equipiment : string;
+  equipment : string;
+}
+export interface DeviceUnit {
+  id : string;
+  name :string;
 }
 
 export interface Equipment{
   id: string;
   name:string;
-  devices : Device[];
+  devices : DeviceUnit[];
 }
 
 export interface Machine{
   id: string;
   name:string;
-  equipiments : Equipment[];
+  equipments : Equipment[];
 }
 
 export interface Line {
@@ -28,8 +32,9 @@ export interface Line {
 }
 
 export interface Sector {
-  name: string;
+  company_owner:string;
   id: string;
+  name: string;
   lines: Line[];
 }
 

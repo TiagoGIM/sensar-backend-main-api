@@ -1,6 +1,6 @@
 import { EquipmentLoader } from "@/domain/use-cases/equipment-loader";
-import { LoadEquipmentRepository } from "@/application/contracts"
-import { Equipment } from "@/domain/entities";
+import { LoadEquipmentRepository } from "@/data/contracts"
+import { Equipment } from "@/domain/entities/equipment";
 
 export class EquipmentLoaderService implements EquipmentLoader {
   /**

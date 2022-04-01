@@ -1,6 +1,9 @@
+import { CompanyId } from "@/domain/entities";
 import { CompanyStructureLoader } from "@/domain/use-cases/company-structure-loader";
+import company from "@/main/routes/company";
 import { Controller, HttpResponse, serverError } from "@/presentation/contracts";
 import { CompanyStructureModel } from "@/presentation/view-models";
+import { Request } from "express"; //acomplamento criar um tipo que tenha request.  
 /**
  * cada controlador sera  handler de uma rota
  * aqui é implementado o view model, que na api é um json.
@@ -11,13 +14,13 @@ export class LoadCompanyStructureController implements Controller {
   constructor(
     private readonly companyStructureLoader : CompanyStructureLoader
     ) { }
-
-  async handle (id) : Promise<HttpResponse<CompanyStructureModel>> {
+  async handle (request :Request) : Promise<HttpResponse<CompanyStructureModel>> {
+    const companyId : CompanyId = request.params.id
     try {
-      const tree = await this.companyStructureLoader.load(id || '1');
+      const companyTree = await this.companyStructureLoader.load(companyId);
        return {
          statusCode : 200,
-         data : tree
+         data : companyTree
         }
     } catch (error : any) {
       return serverError(error);

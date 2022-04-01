@@ -9,7 +9,7 @@ export const sectorsMock = [
         machines: [{
           id: '123',
           name: 'maquina1',
-          equipiments: [
+          equipments: [
             {
               id: '1234',
               name: 'equipamento1',
@@ -17,12 +17,32 @@ export const sectorsMock = [
                 {
                   id :"1",
                   macAdrr :"QRTYWE",
-                  alias :"",
+                  name :"",
+                  observacoes :"s1",
+                  sector :"setor 1",
+                  line :"linha 1",
+                  machine :"maquina 1",
+                  equipment :"equipamento1",
+                },
+                {
+                  id :"2",
+                  macAdrr :"QRTYWE",
+                  name :"s2",
                   observacoes :"",
                   sector :"setor 1",
                   line :"linha 1",
                   machine :"maquina 1",
-                  equipiment :"equipamento1",
+                  equipment :"equipamento1",
+                },
+                {
+                  id :"3",
+                  macAdrr :"QRTYWE",
+                  name :"s3",
+                  observacoes :"",
+                  sector :"setor 1",
+                  line :"linha 1",
+                  machine :"maquina 1",
+                  equipment :"equipamento1",
                 }
               ]
             }
@@ -35,7 +55,7 @@ export const sectorsMock = [
         machines: [{
           id: '12344',
           name: 'maquina13',
-          equipiments: [
+          equipments: [
             {
               id: '12324',
               name: 'equipamento1',
@@ -50,7 +70,7 @@ export const sectorsMock = [
         machines: [{
           id: '0344',
           name: 'maquina13',
-          equipiments: [
+          equipments: [
             {
               id: '12324',
               name: 'equipamento1',
@@ -72,7 +92,7 @@ export const sectorsMock = [
           {
           id: '1233',
           name: 'maquina2',
-          equipiments: [
+          equipments: [
             {
               id: '12345',
               name: 'equipamento1',

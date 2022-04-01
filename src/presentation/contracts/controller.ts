@@ -1,5 +1,5 @@
 import { HttpResponse } from "@/presentation/contracts";
-
+import {Request} from 'express'
 export interface Controller {
-  handle: ( params? : any) => Promise<HttpResponse>
+  handle: ( params? : Request) => Promise<HttpResponse>
 }
