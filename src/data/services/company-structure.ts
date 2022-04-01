@@ -1,7 +1,7 @@
 
 import { CompanyStructure } from "@/domain/entities";
 import { CompanyStructureLoader } from "@/domain/use-cases/company-structure-loader";
-import { LoadCompanyStructureRepository } from "@/application/contracts";
+import { LoadCompanyStructureRepository } from "@/data/contracts";
 
 export class CompanyStructureLoaderService implements CompanyStructureLoader {
   /**

@@ -1,14 +1,21 @@
+import { DeviceId } from "@/domain/entities/device";
+
 export type EquipmentModel = {
+  id:string;
   name:string;
-  devices : Device[];
+  devices : DeviceUnit[];
 }
 type Device = {
   id : string;
   macAdrr : string;
   alias? : string ;
-  observacoes? : string;
+  observacoes? : string;a
   sector : string;
   line : string;
   machine : string;
-  equipiment : string;
+  equipment : string;
+}
+type DeviceUnit = {
+  id : DeviceId;
+  name? : string;
 }

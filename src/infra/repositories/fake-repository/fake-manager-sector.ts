@@ -1,4 +1,4 @@
-import { SectorManagerRepository } from "@/application/contracts/manager-sector.repository";
+import { SectorManagerRepository } from "@/data/contracts/manager-sector.repository";
 import { AddSector, Sector, SectorList } from "@/domain/entities";
 
 export class FakeSectorRepository implements SectorManagerRepository {

@@ -1,11 +1,11 @@
-import { CreateSectorStatus, SectorList, StatusCreateUpdate, AddSector, Sector } from "@/domain/entities";
+import { CreateNewSectorStatus, SectorList, StatusCreateUpdate, AddSector, Sector } from "@/domain/entities";
 import { SectorManager } from "@/domain/use-cases";
-import { SectorManagerRepository } from "@/application/contracts/manager-sector.repository";
+import { SectorManagerRepository } from "@/data/contracts/manager-sector.repository";
 
 export class SectorListManager implements SectorManager {
   constructor(private readonly managerSectorRepository: SectorManagerRepository) { }
 
-  async create(sector: AddSector): Promise<CreateSectorStatus> {
+  async create(sector: AddSector): Promise<CreateNewSectorStatus> {
     const resultOperation = this.managerSectorRepository.create(sector);
     if (resultOperation) return { id :'12',  statusCreate : StatusCreateUpdate.SUCESS}
     return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
