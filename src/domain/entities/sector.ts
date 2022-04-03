@@ -18,6 +18,11 @@ export type CreateNewSectorStatus= {
   id: string;
 }
 
+export type UpdateSectorResponse = {
+  statusUpdate : StatusCreateUpdate;
+  error? : {};
+}
+
 export enum StatusCreateUpdate  {
   SUCESS ='sucess',
   FAIL = 'fail',

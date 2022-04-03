@@ -3,9 +3,12 @@ import express from 'express';
 import cors from 'cors';
 const app = express();
 
-app.options("*", cors());
-app.use(cors());
+const origin = {
+//  origin: isProduction ? 'https://whitelabel.com' : '*',
+  origin: '*'
+}
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
+app.use(cors(origin))
 setupRoutes(app);
 export default app;

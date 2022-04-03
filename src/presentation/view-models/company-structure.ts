@@ -1,5 +1,9 @@
 import { CompanyId, SectorId } from "@/domain/entities";
 
+export type CompanyModel = {
+  id : CompanyId,
+  name : string,
+}
 export type CompanyStructureModel = {
   id: CompanyId;
   name :string;

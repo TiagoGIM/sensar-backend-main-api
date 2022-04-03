@@ -26,3 +26,18 @@ https://sensar-iot.herokuapp.com/api/
 >[GET] query/company-tree/:id
 
 
+## Em andamento
+
+- crud base
+- - setor
+- - - put (ok) post (ok) load (nao ta no caso de uso)
+- - company
+- - equipment
+- - device  
+
+Validaçao de campos
+
+### DTOs Mappers e Sanitizaçao.
+
+- [ ] view models (DTO) Sector e Company
+- [ ] Mappers : toDTO, toPersist e toDomain

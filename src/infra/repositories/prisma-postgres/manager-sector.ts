@@ -28,7 +28,6 @@ export class PrismaPostgressSectorRepository implements SectorManagerRepository 
         name: persisted.name
       }
       console.log('============= UPDATED ==============')
-      console.log(sectorDTO)
       return sectorDTO
     } catch (error) {
       console.log('=============  UPDATE ERROR ===============')
