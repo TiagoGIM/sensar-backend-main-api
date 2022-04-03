@@ -1,46 +1,59 @@
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
 model Company {
-  id Int @default(autoincrement()) @id
-  name String
+  id      String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name    String
   sectors Sector[]
 }
 
 model Sector {
-  id Int  @default(autoincrement()) @id
-  company_owner Company @relation(fields: [companyId], references: [id]) 
-  companyId Int
-  name String
-  lines Line[] 
-  lineId Int
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  company_owner Company? @relation(fields: [companyId], references: [id])
+  companyId     String?  @db.Uuid
+  name          String
+  lines         Line[]
+  lineId        Int?
 }
 
 model Line {
-  id Int  @default(autoincrement()) @id
-  name String
-  sector Sector @relation(fields: [sectorId], references: [id])
-  sectorId Int
-  machines Machine[]
+  id        Int       @id @default(autoincrement())
+  name      String
+  sector    Sector    @relation(fields: [sectorId], references: [id])
+  sectorId  String    @db.Uuid
+  machines  Machine[]
+  machineId Int?
 }
 
 model Machine {
-  id Int  @default(autoincrement()) @id
-  name String
-  line Line @relation(fields: [lineId], references: [id])
-  lineId Int
-  equipments Equipment[]
+  id          Int         @id @default(autoincrement())
+  name        String
+  line        Line        @relation(fields: [lineId], references: [id])
+  lineId      Int
+  equipments  Equipment[]
+  equipmentId Int?
 }
 
 model Equipment {
-  id Int  @default(autoincrement()) @id
-  name String
-  device Device[]
-  machine Machine @relation(fields: [machineId], references: [id])
+  id        Int      @id @default(autoincrement())
+  name      String
+  device    Device[]
+  deviceId  Int?
+  machine   Machine  @relation(fields: [machineId], references: [id])
   machineId Int
 }
+
 model Device {
-  id  Int     @default(autoincrement()) @id
-  macAdrr  String
-  name  String? 
-  equipment  Equipment @relation(fields: [equipmentId], references: [id])
+  id          Int       @id @default(autoincrement())
+  macAdrr     String
+  name        String?
+  equipment   Equipment @relation(fields: [equipmentId], references: [id])
   equipmentId Int
 }
-

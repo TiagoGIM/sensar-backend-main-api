@@ -1,6 +1,5 @@
 import { CompanyId } from "@/domain/entities";
 import { CompanyStructureLoader } from "@/domain/use-cases/company-structure-loader";
-import company from "@/main/routes/company";
 import { Controller, HttpResponse, serverError } from "@/presentation/contracts";
 import { CompanyStructureModel } from "@/presentation/view-models";
 import { Request } from "express"; //acomplamento criar um tipo que tenha request.  
@@ -15,7 +14,8 @@ export class LoadCompanyStructureController implements Controller {
     private readonly companyStructureLoader : CompanyStructureLoader
     ) { }
   async handle (request :Request) : Promise<HttpResponse<CompanyStructureModel>> {
-    const companyId : CompanyId = request.params.id
+    const companyId : CompanyId = request.params.id as unknown as CompanyId
+    // validar paramsId 
     try {
       const companyTree = await this.companyStructureLoader.load(companyId);
        return {

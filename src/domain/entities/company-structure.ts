@@ -4,6 +4,11 @@ import { SectorTree } from "@/domain/entities//sector";
 export type CompanyId  = string;
 
 export type CompanyStructure = {
-  //companyId : CompanyId;
-  sectors: SectorTree[];
+  id : CompanyId;
+  name : string
+  sectors?: SectorTree[];
 }
+
+export type  Company = Omit<CompanyStructure,'id'>;
+
+export type AddCompany = Omit<Company , 'companyId'>;

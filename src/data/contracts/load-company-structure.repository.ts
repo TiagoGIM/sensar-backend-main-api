@@ -1,5 +1,5 @@
-import { InfrastrureTree } from "@/data/models";
+import { CompanyId, CompanyStructure} from "@/domain/entities";
 
 export interface LoadCompanyStructureRepository {
-  loadCompanyStructure : (companyId : string) => Promise<InfrastrureTree>;
+  loadCompanyStructure : (companyId : CompanyId) => Promise<CompanyStructure>;
 }

@@ -6,8 +6,12 @@ export class SectorListManager implements SectorManager {
   constructor(private readonly managerSectorRepository: SectorManagerRepository) { }
 
   async create(sector: AddSector): Promise<CreateNewSectorStatus> {
-    const resultOperation = this.managerSectorRepository.create(sector);
-    if (resultOperation) return { id :'12',  statusCreate : StatusCreateUpdate.SUCESS}
+    console.log("manageSector Repository Post")
+    const resultOperation = await this.managerSectorRepository.create(sector);
+    console.log(resultOperation)
+    if ((await resultOperation).id) {
+      return { id :resultOperation.id,  statusCreate : StatusCreateUpdate.SUCESS}
+    }
     return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
   };
 

@@ -1,5 +1,5 @@
-import { CompanyStructure } from "@/domain/entities";
+import { CompanyId, CompanyStructure } from "@/domain/entities";
 
 export interface CompanyStructureLoader {
-  load: (companyId : string) => Promise<CompanyStructure>
+  load: (companyId : CompanyId) => Promise<CompanyStructure>
 }

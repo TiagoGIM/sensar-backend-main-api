@@ -1,9 +1,13 @@
+import { CompanyId, SectorId } from "@/domain/entities";
+
 export type CompanyStructureModel = {
-  sectors: Sector[];
+  id: CompanyId;
+  name :string;
+  sectors?: Sector[];
 }
 
 type Sector = {
-  id: string;
+  id: SectorId;
   name: string;
   lines: Line[];
 }

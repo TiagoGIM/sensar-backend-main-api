@@ -1,5 +1,5 @@
 
-import { CompanyStructure } from "@/domain/entities";
+import { CompanyId, CompanyStructure } from "@/domain/entities";
 import { CompanyStructureLoader } from "@/domain/use-cases/company-structure-loader";
 import { LoadCompanyStructureRepository } from "@/data/contracts";
 
@@ -13,7 +13,7 @@ export class CompanyStructureLoaderService implements CompanyStructureLoader {
    * deve existir alguma regra pra esse service existir tipo tratamento de error.
    */
   constructor(private readonly loadCompanyStructureRepository: LoadCompanyStructureRepository) { }
-  async load(companyId: string): Promise<CompanyStructure> {
+  async load(companyId: CompanyId): Promise<CompanyStructure> {
     /**
      * Fazer os tratamentos caso nao exista Id nesse metodo
      */

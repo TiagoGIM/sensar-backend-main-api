@@ -1,3 +1,5 @@
+import { SectorId } from "@/domain/entities";
+
 export interface Device {
   id : string;
   macAdrr : string;
@@ -33,7 +35,7 @@ export interface Line {
 
 export interface Sector {
   company_owner:string;
-  id: string;
+  id: SectorId;
   name: string;
   lines: Line[];
 }
