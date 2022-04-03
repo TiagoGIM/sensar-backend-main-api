@@ -1,5 +1,4 @@
 import { CompanyId, SectorId } from '@/domain/entities';
-import { makeValidateBody } from 'express-class-validator'
 export interface SectorListModel {
   sectors : Sector[];
 }
