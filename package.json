@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "typescript nodejs sensar-api",
   "scripts": {
+    "generate": "npx prisma generate",
+    "deploy": "npx prisma migrate deploy",
     "start": "node dist/main/server.js",
-    "build": "rimraf dist && tsc",
+    "build": "npm run generate && rimraf dist && tsc",
     "dev": "ts-node-dev --respawn --watch 'src/**' --transpile-only --ignore-watch node_modules -r tsconfig-paths/register   src/main/server.ts",
-    "postbuild": "npx prisma generate"
   },
   "repository": {
     "type": "git",
