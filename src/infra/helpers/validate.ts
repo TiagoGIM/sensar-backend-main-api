@@ -8,7 +8,7 @@ export class ValidateFields {
         for (const key in data) {
             if (ValidateFields.isFieldEmpty(data[key])) {
                 errors[key] = `${key} field is required`
-            }else if(key === "id" || key === "companyId" && !validate(data[key])){
+            }else if((key === "id" || key === "companyId") && !validate(data[key])){
                 errors[key] = `${key} is invalid, it must be a uiid format`
             } else if (key === "email" && !REGEX.test(data[key])) {
                 errors[key] = `${key} is invalid`

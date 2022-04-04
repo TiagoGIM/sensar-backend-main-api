@@ -2,16 +2,12 @@ import { SectorManagerRepository } from "@/data/contracts/manager-sector.reposit
 import { AddSector, Sector, SectorList } from "@/domain/entities";
 import { PrismaClient } from '@prisma/client'
 
-// Instantiate Prisma Client
 const prisma = new PrismaClient()
 
 export class PrismaPostgressSectorRepository implements SectorManagerRepository {
   async save(sector: Sector): Promise<Sector> {
-    console.log("============================ UPDATE repository sector service =======================")
-    
+    console.log("> UPDATE repository sector service")
     try {
-      //const foundSector = await prisma.sector.findUnique({where : {id : sector.id}})
-      //console.log(foundSector)
       const persisted = await prisma.sector.update(
         {
           where: {
@@ -27,37 +23,39 @@ export class PrismaPostgressSectorRepository implements SectorManagerRepository 
         id: persisted.id,
         name: persisted.name
       }
-      console.log('============= UPDATED ==============')
       return sectorDTO
     } catch (error) {
-      console.log('=============  UPDATE ERROR ===============')
-      console.log(error)
+      console.log('> UPDATE ERROR !')
+      throw new Error('something is wrong in persistence sector layer');
     }
-    return { company_owner: undefined, id: undefined, name: undefined }
   }
   async create(sector: AddSector): Promise<Sector> {
-    console.log("=============== Create repository sector service ===================")
+    console.log("> Create repository sector service ")
     console.log(sector)
     try {
-      const persisted = await prisma.sector.create({ data: sector });
+      const persistedSector = await prisma.sector.create({
+        data: {
+          name: sector.name,
+          company_owner: {
+            connect: { id: sector.company_owner },
+          },
+        },
+      })
+
       const sectorDTO = {
-        company_owner: persisted.companyId,
-        id: persisted.id,
-        name: persisted.name
+        company_owner: persistedSector.companyId,
+        id: persistedSector.id,
+        name: persistedSector.name
       }
-      console.log("============== CREATED =======================")
       console.log(sectorDTO)
       return sectorDTO;
 
     } catch (error: any) {
-      console.log(error)
-      console.log('=============  CREATE ERROR ===============')
-      return { company_owner: undefined, id: undefined, name: undefined }
+      throw new Error('something is wrong in persistence sector layer');
     }
   }
 
   loadSectors(companiId: string): Promise<SectorList> {
     throw new Error("Method not implemented.");
   }
-
 }

@@ -1,5 +1,5 @@
 import { AddCompany, Company } from "@/domain/entities";
 
-export interface CompanyCreater {
+export interface CreateCompany {
   create: (addCompany: AddCompany) => Promise<Company>;
 }

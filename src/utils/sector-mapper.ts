@@ -1,5 +1,6 @@
 import { Sector } from "@/domain/entities";
 import { SectorDTO } from "@/presentation/view-models/sector";
+import { Request } from "express";
 
 //class SectorMap extends Mapper<Vinyl> {
 export class SectorMap {
@@ -19,6 +20,13 @@ export class SectorMap {
       }
     }
   */
+  public static toDTO(input : Request): SectorDTO {
+    return {
+      companyId: input.body.companyId || undefined,
+      id: input.body.id,
+      name: input.body.name
+    }
+  }
   public static toDomain(sector: SectorDTO): Sector {
     return {
       company_owner: sector.companyId,

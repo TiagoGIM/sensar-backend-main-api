@@ -2,23 +2,19 @@ import { StatusCreateUpdate, Sector, UpdateSectorResponse } from "@/domain/entit
 import { SectorManager } from "@/domain/use-cases";
 import { Controller, HttpResponse, serverError } from "../contracts";
 import { Request } from 'express';
-
 import { ValidateFields } from "@/infra/helpers/validate";
 import { SectorDTO } from "../view-models/sector";
-import { SectorMap } from "@/utils/valitade-parans";
+import { SectorMap } from "@/utils/sector-mapper";
+
 export class UpdateSectorController implements Controller {
   constructor(readonly sectorManager: SectorManager) {
   }
   async handle(request?: Request): Promise<HttpResponse<UpdateSectorResponse>> {
 
-    const sectordto: SectorDTO = {
-      companyId: request.body.companyId,
-      id: request.body.id,
-      name: request.body.name
-    }
-
+    const sectordto: SectorDTO = SectorMap.toDTO(request);
+    console.log(sectordto)
     const { errors, isValid } = ValidateFields.fieldsValidation(sectordto)
-    
+
     if (!isValid) return {
       statusCode: 400, data: {
         statusUpdate: StatusCreateUpdate.FAIL,

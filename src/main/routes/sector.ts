@@ -4,6 +4,6 @@ import { makePostSectorController, makeUpdateSectorController } from '@/main/fac
 import { SectorDTO } from "@/presentation/view-models/sector";
 
 export default (router : Router): void => {
-  router.put('/action/sector/', adaptRoute(makeUpdateSectorController()));
+  router.put<unknown, unknown, SectorDTO>('/action/sector/', adaptRoute(makeUpdateSectorController()));
   router.post('/action/sector/', adaptRoute(makePostSectorController()));
 }

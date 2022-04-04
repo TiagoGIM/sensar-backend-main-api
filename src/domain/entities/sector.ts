@@ -15,7 +15,8 @@ export type AddSector = Omit<Sector,'id'>
 
 export type CreateNewSectorStatus= {
   statusCreate: StatusCreateUpdate;
-  id: string;
+  id?: string;
+  error? : {}
 }
 
 export type UpdateSectorResponse = {
