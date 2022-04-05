@@ -5,7 +5,7 @@ const app = express();
 
 const origin = {
 //  origin: isProduction ? 'https://whitelabel.com' : '*',
-  origin: '*'
+  origin: 'http://localhost:3000'
 }
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
