@@ -20,7 +20,7 @@ export class EquipmentLoaderService implements EquipmentLoader {
     /**
      * Fazer os tratamentos caso nao exista Id nesse metodo
      */
-    return this.loadCompanyStructureRepository.loadEquipment(equipmentId);
+    return await this.loadCompanyStructureRepository.loadEquipment(equipmentId);
   }
 }
 
@@ -29,8 +29,8 @@ export class EquipmentManagerImp implements EquipmentManager {
   async create (equipment: AddEquipment) : Promise<ResponseCreateUpdate> {
     const resultOperation = await this.equipmentMachineRepository.create(equipment);
     if ((await resultOperation).id) {
-      return { id :resultOperation.id,  statusCreate : StatusCreateUpdate.SUCESS}
+      return { id :resultOperation.id,  status : StatusCreateUpdate.SUCESS}
     }
-    return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
+    return { id :'',  status : StatusCreateUpdate.FAIL };
   }
 }

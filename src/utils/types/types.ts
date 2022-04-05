@@ -1,5 +1,5 @@
   export interface ResponseCreateUpdate{
-  statusCreate: StatusCreateUpdate;
+  status: StatusCreateUpdate;
   id?: string;
   error? : {}
 }

@@ -44,10 +44,10 @@ model Machine {
 model Equipment {
   id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String
-  device    Device[]
-  deviceId  Int?
   machine   Machine  @relation(fields: [machineId], references: [id])
   machineId String   @db.Uuid
+  device    Device[]
+  deviceId  Int?
 }
 
 model Device {
@@ -56,5 +56,5 @@ model Device {
   name         String?
   equipment    Equipment? @relation(fields: [equipmentId], references: [id])
   equipmentId  String?    @db.Uuid
-  observations String
+  observations String?
 }

@@ -1,4 +1,4 @@
-import { DeviceUnit } from "./device";
+import { Device, DeviceUnit } from "./device";
 import { MachineId } from "./machine";
 
 export type EquipmentId = string;
@@ -8,7 +8,7 @@ export type EquipmentTree = {
   id: EquipmentId;
   name: string;
   machineId: MachineId;
-  devices?: DeviceUnit[];
+  devices?: Device[];
 }
 export type Equipment = Omit<EquipmentTree, 'devices'>
 

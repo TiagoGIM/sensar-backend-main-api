@@ -20,7 +20,7 @@ export class PostSectorController implements Controller {
 
     if (!isValid) return {
       statusCode: 400, data: {
-        statusCreate: StatusCreateUpdate.FAIL,
+        status: StatusCreateUpdate.FAIL,
         error: errors
       }
     }
@@ -30,12 +30,12 @@ export class PostSectorController implements Controller {
         name: addSectorDTO.name
       }
       const sectorCreated = await this.sectorManager.create(sector);
-      if (sectorCreated.statusCreate === StatusCreateUpdate.FAIL) {
+      if (sectorCreated.status === StatusCreateUpdate.FAIL) {
         return {
           statusCode: 500,
           data: {
             id: undefined,
-            statusCreate: StatusCreateUpdate.FAIL
+            status: StatusCreateUpdate.FAIL
           }
         }
       }
@@ -43,7 +43,7 @@ export class PostSectorController implements Controller {
         statusCode: 201,
         data: {
           id: sectorCreated.id,
-          statusCreate: StatusCreateUpdate.SUCESS
+          status: StatusCreateUpdate.SUCESS
         }
       }
     }

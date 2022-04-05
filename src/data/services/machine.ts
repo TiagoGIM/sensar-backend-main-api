@@ -9,9 +9,9 @@ export class MachineManagerImp implements MachineManager {
   async create (machine: AddMachine) : Promise<ResponseCreateUpdate> {
     const resultOperation = await this.managerMachineRepository.create(machine);
     if ((await resultOperation).id) {
-      return { id :resultOperation.id,  statusCreate : StatusCreateUpdate.SUCESS}
+      return { id :resultOperation.id,  status : StatusCreateUpdate.SUCESS}
     }
-    return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
+    return { id :'',  status : StatusCreateUpdate.FAIL };
   }
 }
 // fazer tratamento de erro;

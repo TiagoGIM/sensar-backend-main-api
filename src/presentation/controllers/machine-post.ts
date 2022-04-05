@@ -17,19 +17,19 @@ export class CreateMachineController implements Controller {
     if (!isValid) return {
         statusCode: 400,
         data: {
-        statusCreate: StatusCreateUpdate.FAIL,
+        status: StatusCreateUpdate.FAIL,
         error: errors
       }
     }
     try {
       const machineToAdd : AddMachine = addmachineDTO;
       const machineCreated = await this.machineManager.create(machineToAdd);
-      if( machineCreated.statusCreate === StatusCreateUpdate.FAIL) {
+      if( machineCreated.status === StatusCreateUpdate.FAIL) {
         return {
           statusCode: 500,
           data: {
             id: undefined,
-            statusCreate: StatusCreateUpdate.FAIL
+            status: StatusCreateUpdate.FAIL
           }
         }
       }
@@ -37,7 +37,7 @@ export class CreateMachineController implements Controller {
         statusCode: 201,
         data: {
           id: machineCreated.id,
-          statusCreate: StatusCreateUpdate.SUCESS
+          status: StatusCreateUpdate.SUCESS
         }
       }
     } catch (error: any) {

@@ -9,7 +9,13 @@ export class FakeEquipmentRepository implements LoadEquipmentRepository {
      name: equip.name,
      machineId : 'machineId',
      id:equip.id,
-     devices: equip.devices
+     devices: equip.devices.map(d => ({
+        id: d.id,
+        name: d.name,
+        macAddress: 'mocado',
+        observations: d.observations,
+        equipmentId: d.equipmentId
+      }))
     }
     return loaded;
   }

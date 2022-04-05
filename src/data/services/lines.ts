@@ -8,9 +8,9 @@ export class LineManagerImp implements LineManager {
   async create (line: AddLine) : Promise<ResponseCreateUpdate> {
     const resultOperation = await this.managerLineRepository.create(line);
     if ((await resultOperation).id) {
-      return { id :resultOperation.id,  statusCreate : StatusCreateUpdate.SUCESS}
+      return { id :resultOperation.id,  status : StatusCreateUpdate.SUCESS}
     }
-    return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
+    return { id :'',  status : StatusCreateUpdate.FAIL };
   }
 }
 // fazer tratamento de erro;

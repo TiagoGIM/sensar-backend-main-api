@@ -1,7 +1,9 @@
 import { AddEquipment, Equipment } from "@/domain/entities/equipment";
+import { MachineId } from "@/domain/entities/machine";
+import { EquipmentBase } from "../models";
 
 export interface EquipmentMenageRepository {
-    //save(Machine: Sector): Promise<Machine>;
+    save(equipment: Equipment): Promise<Equipment>;
     create(equipment: AddEquipment): Promise<Equipment>
-    //loadLines(companiId: string): Promise<SectorList>;
+    equipmentsByMachineId(machineId: MachineId): Promise<EquipmentBase[]>;
 }

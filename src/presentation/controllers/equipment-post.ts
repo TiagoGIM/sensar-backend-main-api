@@ -17,19 +17,19 @@ export class CreateEquipmentController implements Controller {
     if (!isValid) return {
         statusCode: 400,
         data: {
-        statusCreate: StatusCreateUpdate.FAIL,
+        status: StatusCreateUpdate.FAIL,
         error: errors
       }
     }
     try {
       const equipmentToAdd : AddEquipment = addEquipmentDTO;
       const equipmentCreated = await this.equipmentManager.create(equipmentToAdd);
-      if( equipmentCreated.statusCreate === StatusCreateUpdate.FAIL) {
+      if( equipmentCreated.status === StatusCreateUpdate.FAIL) {
         return {
           statusCode: 500,
           data: {
             id: undefined,
-            statusCreate: StatusCreateUpdate.FAIL
+            status: StatusCreateUpdate.FAIL
           }
         }
       }
@@ -37,7 +37,7 @@ export class CreateEquipmentController implements Controller {
         statusCode: 201,
         data: {
           id: equipmentCreated.id,
-          statusCreate: StatusCreateUpdate.SUCESS
+          status: StatusCreateUpdate.SUCESS
         }
       }
     } catch (error: any) {

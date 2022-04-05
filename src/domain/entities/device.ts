@@ -1,22 +1,19 @@
-import { SectorId } from ".";
 import { EquipmentId } from "./equipment";
-import { LineId } from "./line";
-import { MachineId } from "./machine";
 // corrigir nome de variavel
 export type Device = {
   id : DeviceId;
-  macAdrr : string;
+  macAddress : string;
   name? : string ;
-  observacoes? : string;
-  sector : SectorId;
-  line : LineId;
-  machine : MachineId;
-  equipment : EquipmentId;
+  observations? : string;
+  equipmentId? : EquipmentId;
 }
 
 export type DeviceUnit = {
   id : DeviceId;
   name? : string ;
+  macAddress: string;
 }
+// no futuro isso sera feito por microservice.
+export type AddDevice = Omit<DeviceUnit, 'id'>;
 
 export type DeviceId = string;

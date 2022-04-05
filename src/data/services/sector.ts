@@ -10,9 +10,9 @@ export class SectorListManager implements SectorManager {
     const resultOperation = await this.managerSectorRepository.create(sector);
     console.log(resultOperation)
     if ((await resultOperation).id) {
-      return { id :resultOperation.id,  statusCreate : StatusCreateUpdate.SUCESS}
+      return { id :resultOperation.id,  status : StatusCreateUpdate.SUCESS}
     }
-    return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
+    return { id :'',  status : StatusCreateUpdate.FAIL };
   };
 
   async update(sector: Sector): Promise<StatusCreateUpdate> {

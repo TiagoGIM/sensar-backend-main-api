@@ -17,6 +17,6 @@ export class CompanyStructureLoaderService implements CompanyStructureLoader {
     /**
      * Fazer os tratamentos caso nao exista Id nesse metodo
      */
-    return this.loadCompanyStructureRepository.loadCompanyStructure(companyId);
+    return await this.loadCompanyStructureRepository.loadCompanyStructure(companyId);
   }
 }
