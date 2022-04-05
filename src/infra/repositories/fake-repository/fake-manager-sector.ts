@@ -11,7 +11,7 @@ export class FakeSectorRepository implements SectorManagerRepository {
   const sectorResponse :Sector = {
     name: sector.name,
     id: sector.id,
-    company_owner : "mockada"
+    companyId : "mockada"
   }
   return sectorResponse 
   }

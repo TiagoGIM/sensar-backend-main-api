@@ -10,7 +10,7 @@ export class FakeCompanyStructureRepository implements LoadCompanyStructureRepos
       id: '',
       name: '',
       sectors: sectorsMock.map(s => ({
-        company_owner: 'fxo',
+        companyId: 'fxo',
         id: s.id,
         name: s.name,
         lines: []

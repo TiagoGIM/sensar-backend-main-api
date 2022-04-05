@@ -8,14 +8,12 @@ import { Request } from "express"; //acomplamento criar um tipo que tenha reques
  * aqui é implementado o view model, que na api é um json.
  * o presentantion conversa com dominio
  */
-
 export class LoadCompanyStructureController implements Controller {
   constructor(
     private readonly companyStructureLoader : CompanyStructureLoader
     ) { }
   async handle (request :Request) : Promise<HttpResponse<CompanyStructureModel>> {
     const companyId : CompanyId = request.params.id as unknown as CompanyId
-    // validar paramsId 
     try {
       const companyTree = await this.companyStructureLoader.load(companyId);
        return {

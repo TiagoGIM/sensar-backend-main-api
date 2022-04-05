@@ -15,9 +15,9 @@ model Company {
 }
 
 model Sector {
-  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  company_owner Company? @relation(fields: [companyId], references: [id])
-  companyId     String?  @db.Uuid
+  id            String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  company_owner Company @relation(fields: [companyId], references: [id])
+  companyId     String  @db.Uuid
   name          String
   lines         Line[]
   lineId        Int?
@@ -51,9 +51,10 @@ model Equipment {
 }
 
 model Device {
-  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  macAdrr     String
-  name        String?
-  equipment   Equipment? @relation(fields: [equipmentId], references: [id])
-  equipmentId String?    @db.Uuid
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  macAddress   String
+  name         String?
+  equipment    Equipment? @relation(fields: [equipmentId], references: [id])
+  equipmentId  String?    @db.Uuid
+  observations String
 }

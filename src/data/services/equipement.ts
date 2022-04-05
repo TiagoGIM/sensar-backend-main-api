@@ -1,6 +1,10 @@
 import { EquipmentLoader } from "@/domain/use-cases/equipment-loader";
 import { LoadEquipmentRepository } from "@/data/contracts"
-import { Equipment } from "@/domain/entities/equipment";
+//manager imports
+import { AddEquipment, Equipment } from "@/domain/entities/equipment";
+import { EquipmentManager } from "@/domain/use-cases/equipment-manager";
+import { ResponseCreateUpdate, StatusCreateUpdate } from "@/utils/types/types";
+import { EquipmentMenageRepository } from "../contracts/manager-equipment.repository";
 
 export class EquipmentLoaderService implements EquipmentLoader {
   /**
@@ -17,5 +21,16 @@ export class EquipmentLoaderService implements EquipmentLoader {
      * Fazer os tratamentos caso nao exista Id nesse metodo
      */
     return this.loadCompanyStructureRepository.loadEquipment(equipmentId);
+  }
+}
+
+export class EquipmentManagerImp implements EquipmentManager {
+  constructor(private readonly equipmentMachineRepository : EquipmentMenageRepository) {}
+  async create (equipment: AddEquipment) : Promise<ResponseCreateUpdate> {
+    const resultOperation = await this.equipmentMachineRepository.create(equipment);
+    if ((await resultOperation).id) {
+      return { id :resultOperation.id,  statusCreate : StatusCreateUpdate.SUCESS}
+    }
+    return { id :'',  statusCreate : StatusCreateUpdate.FAIL };
   }
 }

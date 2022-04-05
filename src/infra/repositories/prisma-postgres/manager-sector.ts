@@ -19,7 +19,7 @@ export class PrismaPostgressSectorRepository implements SectorManagerRepository 
         }
       );
       const sectorDTO = {
-        company_owner: persisted.companyId,
+        companyId: persisted.companyId,
         id: persisted.id,
         name: persisted.name
       }
@@ -37,13 +37,13 @@ export class PrismaPostgressSectorRepository implements SectorManagerRepository 
         data: {
           name: sector.name,
           company_owner: {
-            connect: { id: sector.company_owner },
+            connect: { id: sector.companyId },
           },
         },
       })
 
       const sectorDTO = {
-        company_owner: persistedSector.companyId,
+        companyId: persistedSector.companyId,
         id: persistedSector.id,
         name: persistedSector.name
       }

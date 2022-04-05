@@ -3,7 +3,7 @@ import { LineTree } from "@/domain/entities/line";
 import { ResponseCreateUpdate, StatusCreateUpdate } from "@/utils/types/types";
 
 export type SectorTree = {
-  company_owner: CompanyId;
+  companyId: CompanyId;
   id: SectorId;
   name: string;
   lines: LineTree[];
@@ -33,6 +33,6 @@ export class SectorList {
     this.company_owner = company_owner;
   }
   private validate(sectors: Sector[]): Sector[] {
-    return sectors.filter( s => s.company_owner == this.company_owner );
+    return sectors.filter( s => s.companyId == this.company_owner );
   }
 }

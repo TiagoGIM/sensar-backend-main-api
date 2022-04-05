@@ -29,7 +29,7 @@ export class SectorMap {
   }
   public static toDomain(sector: SectorDTO): Sector {
     return {
-      company_owner: sector.companyId,
+      companyId: sector.companyId,
       id: sector.id,
       name: sector.name
     }

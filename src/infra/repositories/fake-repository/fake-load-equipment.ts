@@ -7,6 +7,7 @@ export class FakeEquipmentRepository implements LoadEquipmentRepository {
     let equip = sectorsMock[0].lines[0].machines[0].equipments[0]
     const loaded :EquipmentTree  = {
      name: equip.name,
+     machineId : 'machineId',
      id:equip.id,
      devices: equip.devices
     }

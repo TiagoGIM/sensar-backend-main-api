@@ -26,7 +26,7 @@ export class PostSectorController implements Controller {
     }
     try {
       const sector: AddSector = {
-        company_owner: addSectorDTO.companyId,
+        companyId: addSectorDTO.companyId,
         name: addSectorDTO.name
       }
       const sectorCreated = await this.sectorManager.create(sector);
