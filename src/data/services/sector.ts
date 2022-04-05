@@ -1,6 +1,7 @@
-import { CreateNewSectorStatus, SectorList, StatusCreateUpdate, AddSector, Sector } from "@/domain/entities";
+import { CreateNewSectorStatus, SectorList, AddSector, Sector } from "@/domain/entities";
 import { SectorManager } from "@/domain/use-cases";
 import { SectorManagerRepository } from "@/data/contracts/manager-sector.repository";
+import { StatusCreateUpdate } from "@/utils/types/types";
 
 export class SectorListManager implements SectorManager {
   constructor(private readonly managerSectorRepository: SectorManagerRepository) { }

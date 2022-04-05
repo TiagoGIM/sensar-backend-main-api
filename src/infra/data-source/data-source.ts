@@ -3,7 +3,7 @@ export const sectorsMock = [
     id: '1',
     name: 'setor 1',
     lines: [
-      {
+      { sectorId:'s2',
         id: '12',
         name: 'linha 1',
         machines: [{
@@ -85,7 +85,7 @@ export const sectorsMock = [
     id: '2',
     name: 'setor 2',
     lines: [
-      {
+      { sectorId:'s2',
         id: '123',
         name: 'linha 13',
         machines: [

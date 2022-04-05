@@ -1,5 +1,6 @@
 import { LoadCompanyStructureRepository } from "@/data/contracts";
 import { CompanyId, CompanyStructure } from "@/domain/entities/company-structure";
+import { SectorTree } from "@/domain/entities/sector";
 import { sectorsMock } from "@/infra/data-source/data-source";
 
 export class FakeCompanyStructureRepository implements LoadCompanyStructureRepository {
@@ -10,9 +11,9 @@ export class FakeCompanyStructureRepository implements LoadCompanyStructureRepos
       name: '',
       sectors: sectorsMock.map(s => ({
         company_owner: 'fxo',
-        id: '123',
+        id: s.id,
         name: s.name,
-        lines: s.lines
+        lines: []
       }))
     }
   };

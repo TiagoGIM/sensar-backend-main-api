@@ -1,6 +1,6 @@
-import { StatusCreateUpdate } from "@/domain/entities";
 import { CreateCompany } from "@/domain/use-cases/company-create";
 import { ValidateFields } from "@/infra/helpers/validate";
+import { StatusCreateUpdate } from "@/utils/types/types";
 import { Request } from "express";
 import { Controller, HttpResponse, serverError } from "../contracts";
 

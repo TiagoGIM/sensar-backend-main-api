@@ -2,9 +2,9 @@ import {
   Sector,
   SectorList,
   CreateNewSectorStatus,
-  StatusCreateUpdate,
   AddSector
 } from "@/domain/entities";
+import { StatusCreateUpdate } from "@/utils/types/types";
 
 export interface SectorManager {
   create: (sector: AddSector) => Promise<CreateNewSectorStatus>

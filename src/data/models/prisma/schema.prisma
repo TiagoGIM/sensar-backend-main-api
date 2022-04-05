@@ -24,7 +24,7 @@ model Sector {
 }
 
 model Line {
-  id        Int       @id @default(autoincrement())
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String
   sector    Sector    @relation(fields: [sectorId], references: [id])
   sectorId  String    @db.Uuid
@@ -33,27 +33,27 @@ model Line {
 }
 
 model Machine {
-  id          Int         @id @default(autoincrement())
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String
   line        Line        @relation(fields: [lineId], references: [id])
-  lineId      Int
+  lineId      String      @db.Uuid
   equipments  Equipment[]
   equipmentId Int?
 }
 
 model Equipment {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String
   device    Device[]
   deviceId  Int?
   machine   Machine  @relation(fields: [machineId], references: [id])
-  machineId Int
+  machineId String   @db.Uuid
 }
 
 model Device {
-  id          Int       @id @default(autoincrement())
+  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   macAdrr     String
   name        String?
-  equipment   Equipment @relation(fields: [equipmentId], references: [id])
-  equipmentId Int
+  equipment   Equipment? @relation(fields: [equipmentId], references: [id])
+  equipmentId String?    @db.Uuid
 }

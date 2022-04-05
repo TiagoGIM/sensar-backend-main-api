@@ -16,9 +16,13 @@ export class LoadEquipmentController implements Controller {
     try {
       //caso o equip fosse diferente do model, precisaria fzr um adpter pra mapear
       const equip = await this.equipmentLoader.load('id');
+       const data : EquipmentModel = {
+        id : equip.id,
+        name : equip.name
+       }
        return {
          statusCode : 200,
-         data : equip
+         data : data
         }
     } catch (error : any) {
       return serverError(error);

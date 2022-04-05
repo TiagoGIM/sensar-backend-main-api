@@ -13,25 +13,25 @@ export type CompanyStructureModel = {
 type Sector = {
   id: SectorId;
   name: string;
-  lines: Line[];
+  lines?: Line[];
 }
 
 type Line = {
   id: string;
   name: string;
-  machines: Machine[];
+  machines?: Machine[];
 }
 
 type Machine = {
   id: string;
   name:string;
-  equipments : Equipment[];
+  equipments? : Equipment[];
 }
 
 type Equipment = {
   id: string;
   name:string;
-  devices : Device[];
+  devices? : Device[];
 }
 
 type Device = {

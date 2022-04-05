@@ -1,5 +1,5 @@
 import { CompanyId, SectorId } from '@/domain/entities';
-import { type } from 'os';
+
 export interface SectorListModel {
   sectors : Sector[];
 }

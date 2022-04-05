@@ -1,5 +1,6 @@
 import { CompanyId } from "@/domain/entities";
 import { LineTree } from "@/domain/entities/line";
+import { ResponseCreateUpdate, StatusCreateUpdate } from "@/utils/types/types";
 
 export type SectorTree = {
   company_owner: CompanyId;
@@ -13,21 +14,13 @@ export type Sector = Omit<SectorTree,'lines'>
 
 export type AddSector = Omit<Sector,'id'>
 
-export type CreateNewSectorStatus= {
-  statusCreate: StatusCreateUpdate;
-  id?: string;
-  error? : {}
-}
+export type CreateNewSectorStatus = ResponseCreateUpdate;
 
 export type UpdateSectorResponse = {
   statusUpdate : StatusCreateUpdate;
   error? : {};
 }
 
-export enum StatusCreateUpdate  {
-  SUCESS ='sucess',
-  FAIL = 'fail',
-}
 //regra de dominio, todos os setores devem pertencer à mesma empresa.
 //export type SectorList = Sector[];
 

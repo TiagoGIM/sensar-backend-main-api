@@ -1,9 +1,10 @@
-import { StatusCreateUpdate, AddSector, CreateNewSectorStatus, Sector } from "@/domain/entities";
+import { AddSector, CreateNewSectorStatus, Sector } from "@/domain/entities";
 import { SectorManager } from "@/domain/use-cases";
 import { Controller, HttpResponse, serverError } from "../contracts";
 import { Request } from 'express';
 import { ValidateFields } from "@/infra/helpers/validate";
 import { addSectorDTO } from "../view-models/sector";
+import { StatusCreateUpdate } from "@/utils/types/types";
 
 export class PostSectorController implements Controller {
   constructor(readonly sectorManager: SectorManager) { }

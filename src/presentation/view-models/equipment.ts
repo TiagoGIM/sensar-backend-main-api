@@ -3,7 +3,7 @@ import { DeviceId } from "@/domain/entities/device";
 export type EquipmentModel = {
   id:string;
   name:string;
-  devices : DeviceUnit[];
+  devices? : DeviceUnit[];
 }
 type Device = {
   id : string;
