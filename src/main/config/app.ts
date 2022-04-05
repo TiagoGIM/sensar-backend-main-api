@@ -5,7 +5,8 @@ const app = express();
 
 const origin = {
 //  origin: isProduction ? 'https://whitelabel.com' : '*',
-  origin: 'http://localhost:3000'
+  origin: 'http://localhost:3000',
+  Access-Control-Allow-Credentials: true
 }
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}))
