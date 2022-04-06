@@ -9,8 +9,8 @@ As tecnologias ainda estão em processo de escolha para evitar enviesar o proced
 - [X] Disponibilizar endpoint do HEROKU
 - [X] Criar Versão de API mockada
 - [ ] SWAGGER pra nao ter que documentar todas as rotas nao mao aqui  =D
-- [ ] Adicionar ORM (type ou prisma)
-- [ ] Linkar DBS (Mongo ou Postgres)
+- [X] Adicionar ORM (type ou prisma)
+- [X] Linkar DBS (Mongo ou Postgres)
 
 
 
@@ -30,12 +30,16 @@ https://sensar-iot.herokuapp.com/api/
 
 - crud base
 - - setor
-- - - put (ok) post (ok) load (nao ta no caso de uso)
+- - - put (ok) post (ok) create(ok)
 - - company
+- - - loadTree(ok)
 - - equipment
+- - - put (ok) post (ok) create(ok) delete - [ ]
 - - device  
+- - - put (ok) post (ok) create(ok)
 
 Validaçao de campos
+
 
 ### DTOs Mappers e Sanitizaçao.
 
