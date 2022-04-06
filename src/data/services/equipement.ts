@@ -6,7 +6,7 @@ import { EquipmentManager } from "@/domain/use-cases/equipment-manager";
 import { ResponseCreateUpdate, StatusCreateUpdate } from "@/utils/types/types";
 import { EquipmentMenageRepository } from "../contracts/manager-equipment.repository";
 
-export class EquipmentLoaderService implements EquipmentLoader {
+export class EquipmentLoaderImp implements EquipmentLoader {
   /**
    * um Repository é um adpter especializado em bd.
    * ele modifica a estrutura do dado

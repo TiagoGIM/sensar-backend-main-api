@@ -5,5 +5,5 @@ export type HttpResponse<T = any> = {
 
 export const serverError = (error: Error): HttpResponse => ({
   statusCode: 500,
-  data: error.stack
+  data: error.message || 'Internal Server Error',
 });

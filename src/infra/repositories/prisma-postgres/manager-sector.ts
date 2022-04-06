@@ -1,6 +1,6 @@
 import { SectorManagerRepository } from "@/data/contracts/manager-sector.repository";
 import { AddSector, Sector, SectorList } from "@/domain/entities";
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Prisma  } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
@@ -51,6 +51,10 @@ export class PrismaPostgressSectorRepository implements SectorManagerRepository 
       return sectorDTO;
 
     } catch (error: any) {
+      if(error instanceof Prisma.PrismaClientKnownRequestError) {
+        console.log(error.code)
+        if (error.code === 'P2025') throw new Error('Invalid CompanyId');
+      }
       throw new Error('something is wrong in persistence sector layer');
     }
   }
