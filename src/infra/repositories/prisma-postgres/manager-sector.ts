@@ -59,7 +59,17 @@ export class PrismaPostgressSectorRepository implements SectorManagerRepository 
     }
   }
 
-  loadSectors(companiId: string): Promise<SectorList> {
-    throw new Error("Method not implemented.");
+  async loadSectors(companiId: string): Promise<Sector[]> {
+    console.log("> Load repository sector service ")
+    console.log(companiId)
+    const found = await prisma.sector.findMany({
+      where: {
+        company_owner: {
+          id: companiId
+        }
+      }
+    });
+
+    return  found
   }
 }

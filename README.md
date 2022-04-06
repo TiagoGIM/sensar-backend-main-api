@@ -30,11 +30,11 @@ https://sensar-iot.herokuapp.com/api/
 
 - crud base
 - - setor
-- - - put (ok) post (ok) create(ok)
+- - - put (ok) post (ok) create(ok) loadAll( ) delete ( )
 - - company
 - - - loadTree(ok)
 - - equipment
-- - - put (ok) post (ok) create(ok) delete - [ ]
+- - - put (ok) post (ok) create(ok) delete - [ ] loadAll(ok)
 - - device  
 - - - put (ok) post (ok) create(ok)
 

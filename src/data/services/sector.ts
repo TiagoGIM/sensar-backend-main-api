@@ -22,7 +22,7 @@ export class SectorListManager implements SectorManager {
     return StatusCreateUpdate.FAIL;
   }
 
-  async load(companiId: string): Promise<SectorList> {
+  async load(companiId: string): Promise<Sector[]> {
     return this.managerSectorRepository.loadSectors(companiId);
   };
 }
