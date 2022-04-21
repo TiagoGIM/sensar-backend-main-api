@@ -40,7 +40,6 @@ https://sensar-iot.herokuapp.com/api/
 
 Validaçao de campos
 
-
 ### DTOs Mappers e Sanitizaçao.
 
 - [ ] view models (DTO) Sector e Company
