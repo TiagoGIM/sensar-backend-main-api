@@ -36,7 +36,7 @@ https://sensar-iot.herokuapp.com/api/
 - - equipment
 - - - put (ok) post (ok) create(ok) delete - [ ] loadAll(ok)
 - - device  
-- - - put (ok) post (ok) create(ok)
+- - - put (ok) loadAll(ok) create(ok)
 
 Validaçao de campos
 
