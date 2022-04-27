@@ -17,3 +17,14 @@ export type DeviceUnit = {
 export type AddDevice = Omit<DeviceUnit, 'id'>;
 
 export type DeviceId = string;
+
+export type DeviceData = {
+  id : DeviceId;
+  macAddress : string;
+  data : any;
+}
+
+export type StatusRelatoryCreated = { 
+  id : DeviceId;
+  status : boolean;
+}

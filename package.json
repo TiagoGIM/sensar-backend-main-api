@@ -52,6 +52,7 @@
     "express": "^4.17.3",
     "module-alias": "^2.2.2",
     "prisma": "^3.11.1",
+    "undici": "^5.0.0",
     "uuid": "^8.3.2",
     "uuid-validate": "^0.0.3"
   },

@@ -10,7 +10,6 @@ export class LoadEquipmentsDeviceController implements Controller {
   constructor(readonly deviceManager: DeviceManager) { }
   //deveria retornar view model
   async handle(request?: Request): Promise<HttpResponse<any>> {
-    console.log('nao idoltere a hype')
     console.log(request.params.equipmentId)
     const equipmentId = request.params.equipmentId;
     //descobrir como validar params
